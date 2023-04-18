@@ -1,10 +1,21 @@
+#Criar Tabela
+#CREATE DATABASE db_Alunos; 
+#USE db_Alunos;
+#CREATE TABLE tb_aluno (
+#    name VARCHAR(20),
+#    sobrenome VARCHAR(20),
+#   turma VARCHAR(20)
+#);
+#INSERT INTO aluno ('nome', 'sobrenome', 'turma');
+
+
 import mysql.connector
 from mysql.connector import Error
 
 try:
-    con = mysql.connector.connect(host='localhost',database='db_Alunos',user='root',password='abc123**')
+    con = mysql.connector.connect(host='localhost',database='db_Alunos',user='root',password='')
 
-    consulta_sql = "select * from tbl_autores"
+    consulta_sql = "select * from tb_aluno"
     cursor = con.cursor()
     cursor.execute(consulta_sql)
     linhas = cursor.fetchall()
@@ -12,9 +23,9 @@ try:
 
     print("\nMostrando os autores cadastrados")
     for linha in linhas:
-        print("Id:", linha[0])
-        print("Nome:", linha[1])
-        print("Sobrenome:", linha[2], "\n")
+        print("Nome:", linha[0])
+        print("Sobrenome:", linha[1])
+        print("Turma:", linha[2], "\n")
 except Error as e:
     print("Erro ao acessar tabela MySQL", e)
 finally:
