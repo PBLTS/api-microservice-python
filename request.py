@@ -17,5 +17,11 @@ def cadastrar():
     response = requests.post(api_url, json=enviar)
     return response.json()
 
+@app.route('/v1/tipo', methods=["DELETE"])
+def home():
+    api_url = "https://jsonplaceholder.typicode.com/todos/1"
+    response = requests.delete(api_url)
+    return response.json()
+
 if __name__ == '__main__':
     app.run()
